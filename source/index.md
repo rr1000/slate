@@ -1,57 +1,68 @@
 ---
-title: API Reference
+title: Catalyze HIPPA Docs
 
 language_tabs:
-  - shell
-  - ruby
-  - python
+  - ""
+  - ""
+  - ""
 
 toc_footers:
- - <a href='#'>Sign Up for a Developer Key</a>
- - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+ - ""
 ---
 
-# Introduction
+# Catalyze HIPPA Compliance
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Learn how Catalyze complies with HIPPA. We did the hard work so you don't have to. See how we comply below.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+# Section One - HIPAA 164.312(b)
+Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use electronic protected health information.
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+- organization creation / deletion
+- user creation / deletion / update
+- application creation / deletion / update
+- At the application-level, checks include:
+- user login
+- user logout
+- user access data
+- user change data
+- admin login
+- admin view data
+- admin change data
+- data storage creation / deletion / update
 
-# Authentication
+# Section Two - HIPAA 164.312(a)(1)
 
-> To authorize, use this code:
+Implement technical policies and procedures for electronic information systems that maintain electronic protected health information to allow access only to those persons or software programs that have been granted access rights as specified in §164.308(a)(4).
 
-```ruby
-require 'kittn'
+- Provide multi-factor / level access controls and account validation.
+- Phone Number / Voice Call
+- SMS / Text Message Validation
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+# Section Three - HIPAA 164.312(c)(1)
 
-```python
-import 'kittn'
+Implement policies and procedures to protect electronic protected health information from improper alteration or destruction.
 
-api = Kittn.authorize('meowmeowmeow')
-```
+- Logging information is securely replicated and stored in multiple geo-redundant locations.
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+# Section Four - HIPAA 164.310(a)(2)(ii)
 
-> Make sure to replace `meowmeowmeow` with your API key.
+Implement policies and procedures to safeguard the facility and the equipment therein from unauthorized physical access, tampering, and theft.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+- Strictly enforced security incident reporting process.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+# Section Five - HIPAA 164.310(a)(1)
 
-`Authorization: meowmeowmeow`
+Implement policies and procedures to limit physical access to its electronic information systems and the facility or facilities in which they are housed, while ensuring that properly authorized access is allowed.
 
-<aside class="notice">
-You must replace `meowmeowmeow` with your personal API key.
-</aside>
+SAS 70 Physical security for all cloud hardware. Hardware is high availability (99.9+% uptime).
+
+# Section Six - HIPAA 164.312(a)(2)(iv)
+
+Implement a mechanism to encrypt and decrypt electronic protected health information.
+
+- Any data con­tain­ing PHI is encrypted at rest.
+- Developers maintain full control over their cryptographic keys.
+- All data in transit, between apps and catalyze.io, is protected using SSL encryption that supports or exceeds industry standards.
 
 # Kittens
 
@@ -161,21 +172,3 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the cat to retrieve
 
-# Errors
-
-The Kittn API uses the following error codes:
-
-
-Error Code | Meaning
----------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slown down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.

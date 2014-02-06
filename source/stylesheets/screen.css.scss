@@ -5,6 +5,12 @@
 @import 'syntax';
 @import 'icon-font';
 
+////////////////////////////////////////////////////////////////////////////////
+// Catalyze Font
+////////////////////////////////////////////////////////////////////////////////
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
 
@@ -35,6 +41,10 @@ html, body {
   background-color: $main-bg;
 }
 
+body{
+  margin-top: 5px;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +57,7 @@ html, body {
   left: 0;
   bottom: 0;
   width: $nav-width;
-  background-color: $nav-bg;
+  background-color: #ddd;
   font-size: 13px;
   font-weight: bold;
 
@@ -76,7 +86,7 @@ html, body {
   }
 
   li {
-    color: $nav-text;
+    color: #444544;
     @include transition-property('background');
     @include transition-timing-function('linear');
     @include transition-duration(230ms);
@@ -84,8 +94,9 @@ html, body {
 
   // This is the currently selected ToC entry
   .tocify-focus {
-    @include box-shadow(0px 1px 0px $nav-active-shadow);
-    background-color: $nav-active-bg;
+    border-top: 1px solid #286e92;
+    border-bottom: 1px solid #286e92;
+    background-color: #2098ca;
     color: $nav-active-text;
   }
 
@@ -151,7 +162,7 @@ html, body {
   min-width: 700px;
   position: relative;
   z-index: 10;
-  background-color: $main-bg;
+  background-color: #f3f3f3;
 
   padding-bottom: 1px; // prevent margin overflow
 
@@ -161,6 +172,7 @@ html, body {
   // I know, it's hackish, but it's the simplist way to make the left
   // half of the content always this background color.
   .dark-box {
+    // display: none !important;
     width: $examples-width;
     background-color: $examples-bg;
     position: absolute;
@@ -212,7 +224,6 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
-
 
   &>h1, &>h2, &>h3, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
     margin-right: $examples-width;
@@ -394,6 +405,7 @@ html, body {
 // This is all the stuff that appears in the right half of the page
 
 .content {
+  width: 100%;
   pre, blockquote {
     background-color: $code-bg;
     color: #fff;
@@ -430,5 +442,42 @@ html, body {
       border-top: 1px solid #000;
       border-bottom: 1px solid #404040;
     }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Catalyze Custom Styles
+////////////////////////////////////////////////////////////////////////////////
+.logo{
+  padding: 20px 20px 20px 15px;
+  background-color: #444544;
+  border-bottom: 1px solid #000;
+
+  img{
+    width: 60%;
+
+    display: block;
+  }
+}
+
+.top-bar{
+  height: 5px;
+  position: fixed;
+  z-index: 99;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: #2098ca;
+}
+
+.content > h1, .content > h2, .content > h3, .content > p, .content > table, .content > ul, .content > ol, .content > aside, .content > dl{
+  margin-right: 30%;
+}
+
+.page-wrapper{
+
+  ul, li, p{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
   }
 }
