@@ -2,7 +2,7 @@
 title: Catalyze HIPPA Docs
 
 language_tabs:
-  - ""
+  - "Catalyze Controls"
   - ""
   - ""
 
@@ -14,11 +14,11 @@ toc_footers:
 
 Learn how Catalyze not only complies with HIPPA, but builds a better, more secure environment to mitigate your risk. We did the hard work so you don't have to. See how we comply below.
 
-Standards marked with an (R) are *Required*. Standards marked with an (A) are *Addressable*.
+Controls marked with an (Req) are *Required*. Controls marked with an (A) are *Addressable*. In our environment, controls outlined below are implemented on all infrastructure that processes, stores, transmits or can otherwise gain access to ePHI (electronic protected health information). The referenced controls are listed on the left, recommendation in the middle, and Catalyze compliant implementation on the right.
 
-# Administrative Safeguards (see [Â§ 164.308](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf))
+# Administrative Safeguards (see [164.308](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf))
 
-Taken directly from the wording of the Security Rule, administrative safeguards are â€œadministrative actions, and policies and procedures, to manage the selection, development, implementation, and maintenance of security measures to protect electronic protected health information and to manage the conduct of the covered entityâ€™s workforce in relation to the protection of that information.â€
+Taken directly from the wording of the Security Rule, administrative safeguards are *administrative actions, and policies and procedures, to manage the selection, development, implementation, and maintenance of security measures to protect electronic protected health information and to manage the conduct of the covered entityâ€™s workforce in relation to the protection of that information.*
 
 ## Security Management Process - 164.308(a)(1)(i)
 
@@ -34,10 +34,10 @@ Policies and procedures address the requirements of monitoring and logging syste
 
 Standard | Description
 --------- | -----------
-Risk Analysis (R)  | Conduct an accurate and thorough assessment of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of electronic PHI held by the covered entity.
-Risk Management (R) | Implement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level to comply with Sec. 164.306(a) [Security standards: General rules; (a) General requirements].
-Sanction Policy (R) | Apply appropriate sanctions against workforce members who fail to comply with the security policies and procedures of the covered entity.
-Information System Activity Review (R) | Implement procedures to regularly review records of information system activity, such as audit logs, access reports, and security incident tracking reports.
+Risk Analysis (Req)  | Conduct an accurate and thorough assessment of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of electronic PHI held by the covered entity.
+Risk Management (Req) | Implement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level to comply with Sec. 164.306(a) [Security standards: General rules; (a) General requirements].
+Sanction Policy (Req) | Apply appropriate sanctions against workforce members who fail to comply with the security policies and procedures of the covered entity.
+Information System Activity Review (Req) | Implement procedures to regularly review records of information system activity, such as audit logs, access reports, and security incident tracking reports.
 
 ## Assigned Security Responsibility - 164.308(a)(2)
 
@@ -47,7 +47,7 @@ Catalyze, Inc. has formally assigned and documented its security officer.
 
 Standard | Description
 --------- | -----------
-Assigned Security Responsibility (R) | Identify the security official who is responsible for the development and implementation of the policies and procedures required by this subpart for the entity.
+Assigned Security Responsibility (Req) | Identify the security official who is responsible for the development and implementation of the policies and procedures required by this subpart for the entity.
 
 ## Workforce Security - 164.308(a)(3)(i)
 
@@ -65,162 +65,281 @@ Authorization and/or Supervision (A) | Implement procedures for the authorizatio
 Workforce Clearance Procedure (A) | Implement procedures to determine that the access of a workforce member to electronic protected health information is appropriate.
 Termination Procedures (A) | Implement procedures for terminating access to electronic protected health information when the employment of a workforce member ends or as required by determinations made as specified in paragraph (a)(3)(ii)(B) [Workforce Clearance Procedures] of this section.
 
+## Information Access Management - 164.308(a)(4)(i)
 
+```
+Catalyze, Inc. does not perform the functions of a Healthcare Clearinghouse so aspects of this sections are not applicable.
 
-# Section One - HIPAA 164.312(b)
-Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use electronic protected health information.
+The security officer determines the roles necessary for each system and application. When access is needed to Catalyze infrastructure, a request and acknowledgement form is signed and then approved by the individualâ€™s supervisor.
 
-- organization creation / deletion
-- user creation / deletion / update
-- application creation / deletion / update
-- At the application-level, checks include:
-- user login
-- user logout
-- user access data
-- user change data
-- admin login
-- admin view data
-- admin change data
-- data storage creation / deletion / update
-
-# Section Two - HIPAA 164.312(a)(1)
-
-Implement technical policies and procedures for electronic information systems that maintain electronic protected health information to allow access only to those persons or software programs that have been granted access rights as specified in Ã‚Â§164.308(a)(4).
-
-- Provide multi-factor / level access controls and account validation.
-- Phone Number / Voice Call
-- SMS / Text Message Validation
-
-# Section Three - HIPAA 164.312(c)(1)
-
-Implement policies and procedures to protect electronic protected health information from improper alteration or destruction.
-
-- Logging information is securely replicated and stored in multiple geo-redundant locations.
-
-# Section Four - HIPAA 164.310(a)(2)(ii)
-
-Implement policies and procedures to safeguard the facility and the equipment therein from unauthorized physical access, tampering, and theft.
-
-- Strictly enforced security incident reporting process.
-
-# Section Five - HIPAA 164.310(a)(1)
-
-Implement policies and procedures to limit physical access to its electronic information systems and the facility or facilities in which they are housed, while ensuring that properly authorized access is allowed.
-
-SAS 70 Physical security for all cloud hardware. Hardware is high availability (99.9+% uptime).
-
-# Section Six - HIPAA 164.312(a)(2)(iv)
-
-Implement a mechanism to encrypt and decrypt electronic protected health information.
-
-- Any data conÃ‚Â­tainÃ‚Â­ing PHI is encrypted at rest.
-- Developers maintain full control over their cryptographic keys.
-- All data in transit, between apps and catalyze.io, is protected using SSL encryption that supports or exceeds industry standards.
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+Catalyze, Inc. has a formal process  for requesting additional access to what employees are provisioned.
 ```
 
-```python
-import 'kittn'
-
-api = Kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember Ã¢â‚¬â€ a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import 'kittn'
-
-api = Kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/3"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Isis",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
+Standard | Description
 --------- | -----------
-ID | The ID of the cat to retrieve
+Isolating Health care Clearinghouse Function (Req) | If a health care clearinghouse is part of a larger organization, the clearinghouse must implement policies and procedures that protect the electronic protected health information of the clearinghouse from unauthorized access by the larger organization.
+Access Authorization (A) | Implement policies and procedures for granting access to electronic protected health information, for example, through access to a workstation, transaction, program, process, or other mechanism.
+Access Establishment and Modification (A) | Implement policies and procedures that, based upon the entity's access authorization policies, establish, document, review, and modify a user's right of access to a workstation, transaction, program, or process.
+
+## Security Awareness and Training - 164.308(a)(5)(i)
+
+```
+Catalyze, Inc has a Security Awareness training policy in place that requires new employees and current employees to conduct training upon hire and annually thereafter.
+
+Catalyze, Inc. proactively assesses and tests for malicious software within their environment.
+
+Catalyze, Inc. is monitoring and logging successful and unsuccessful log-in attempts to the servers within its environment and that policies are in place requiring audit logging, which includes login attempts.
+
+Password configurations are set to require that passwords are a minimum of 7 character length, 90 day password expiration, account lockout after 5 invalid attempts, password history of last 4 passwords remembered, and account lockout after 15 minutes of inactivity.
+```
+
+Standard | Description
+--------- | -----------
+Security Reminders (A) | Periodic security updates to all members of Catalyze, Inc.
+Protection from Malicious Software (A) | Procedures for guarding against, detecting, and reporting malicious software.
+Log-in Monitoring (A) | Procedures for monitoring log-in attempts and reporting discrepancies.
+Password Management (A) | Procedures for creating, changing, and safeguarding passwords.
+
+## Security Incident Procedures - 164.308(a)(6)(i)
+
+```
+Catalyze has implemented a formal incident response plan (IRP), which discusses the procedures for identifying, responding to, and escalating suspected and confirmed security breaches. Catalyze, Inc. has implemented an incident response team for the purposes of dealing with potential security breaches. The IRP has specific types of incidents to be aware of and look out for, as well as some common types of incidents that are monitored for within the environment.
+```
+
+Standard | Description
+--------- | -----------
+Response and Reporting (Req) | Identify and respond to suspected or known security incidents; mitigate, to the extent practicable, harmful effects of security incidents that are known to the covered entity; and document security incidents and their outcomes.
+
+## Contingency Plan - 164.308(a)(7)(i)
+
+```
+Catalyze, Inc has a formal Backup and Recovery Policy that defines the data backup strategy including: Schedule, associated responsibilities, and any risk-assessed exclusion to the backup schedule.
+
+Catalyze, Inc has a formal Disaster Recovery plan to ensure the efficient recovery of critical business data and systems in the event of a disaster. The DR plan includes, at a minimum, specific technical procedures necessary to reinstate the infrastructure and data to allow critical business functions to continue business operations after a disaster has occurred. Additionally, the Catalyze DR plan includes requirements for performing annual testing of the DR plan to ensure its effectiveness.
+
+Catalyze, Inc. has a Business Continuity Plan (BCP) to aid in the efficient recovery of critical business functions after a disaster has been declared. The BCP identifies critical information necessary to resume business operations such as: Hardware/software requirements, recovery time objectives, forms, employee/vendor contact lists, alternate working procedures, emergency access procedures, and a data and application criticality analysis. The BCP includes an Emergency Mode Operations Plan that addresses the access and protection of ePHI while operating in emergency mode.
+
+The DR and BPC plans are reviewed and tested annually or whenever significant infrastructure changes occur.
+
+Catalyze, Inc has a performed an applications and data criticality analysis that details what systems and application need be recovered and their specific order in the recovery process.
+```
+
+Standard | Description
+--------- | -----------
+Data Backup Plan (Req) | Establish and implement procedures to create and maintain retrievable exact copies of electronic protected health information.
+Disaster Recovery Plan (Req) | Establish (and implement as needed) procedures to restore any loss of data.
+Emergency Mode Operation Plan (Req) | Establish (and implement as needed) procedures to enable continuation of critical business processes for protection of the security of electronic PHI while operating in emergency mode.
+Testing and Revision Procedure (A) | Implement procedures for periodic testing and revision of contingency plans.
+Applications and Data Criticality Analysis (A) | Assess the relative criticality of specific applications and data in support of other contingency plan components.
+
+## Evaluation - 164.308(a)(8)
+
+```
+Catalyze, Inc. had formal internal policies and procedures for conducting periodic technical and non-technical testing. These define procedures for performing quarterly internal and external vulnerability scanning, as well as annual penetration testing. Additionally, non-technical evaluations occur on an annual basis to ensure that the security posture of Catalyze is at the defined level, approved by management, and communicated down to Catalyze employees.
+```
+
+Standard | Description
+--------- | -----------
+Evaluation (Req) | Perform a periodic technical and non-technical evaluation, based initially upon the standards implemented under this rule and subsequently, in response to environmental or operational changes affecting the security of electronic PHI that establishes the extent to which an entity's security policies and procedures meet the requirements of this subpart.
+
+## Business Associate Contracts and Other Arrangement - 164.308(b)(1)
+
+```
+Catalyze, Inc. has a formalized template, as well as policies in place regarding Business Associate Agreements and written contracts. Catalyze has engaged a third part provider for hosting responsibilities and has written attestations of safeguarding its data. Additionally, Catalyze performs due diligence in assuring that third party providers they select go through their due diligence process.
+```
+
+Standard | Description
+--------- | -----------
+Written Contract or Other Arrangement (Req) | A covered entity, in accordance with Â§ 164.306 [Security Standards: General Rules], may permit a business associate to create, receive, maintain, or transmit electronic protected health information on the covered entityâ€™s behalf only if the covered entity obtains satisfactory assurances, in accordance with Â§ 164.314(a) [Business Associate Contracts or Other Arrangements] that the business associate will appropriately safeguard the information. Document the satisfactory assurances required by paragraph (b)(1) [Business Associate Contracts and Other Arrangements] of this section through a written contract or other arrangement with the business associate that meets the applicable requirements of Â§ 164.314(a) [Business Associate Contracts or Other Arrangements].
+
+# Physical Safeguards (see [164.310](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf))
+
+This one is pretty straight forward - *physical measures, policies, and procedures to protect a covered entityâ€™s electronic information systems and related buildings and equipment, from natural and environmental hazards, and unauthorized intrusion.*
+
+## Facility Access Controls - 164.310(a)(1)
+
+```
+Catalyze, Inc. infrastructure supporting the its environment is hosted at Rackspace, which provides hosting and recovery services for the infrastructure.
+
+Catalyze headquarters also has any written policies and procedures for safeguarding the corporate location, which includes workstations with access to the environment, from unauthorized physical access.
+
+The Catalyze environment is entirely hosted and built on hardware components provided by Rackspace in a multitenant configuration, which Catalyze would never have access into.
+```
+
+Standard | Description
+--------- | -----------
+Contingency Operations (A) | Establish (and implement as needed) procedures that allow facility access in support of restoration of lost data under the disaster recovery plan and emergency mode operations plan in the event of an emergency.
+Facility Security Plan (A) | Implement policies and procedures to safeguard the facility and the equipment therein from unauthorized physical access, tampering, and theft.
+Access Control and Validation Procedures (A) | Implement procedures to control and validate a person's access to facilities based on their role or function, including visitor control, and control of access to software programs for testing and revision.
+Maintenance Records (A) | Implement policies and procedures to document repairs and modifications to the physical components of a facility which are related to security (for example, hardware, walls, doors, and locks).
+
+## Workstation Use - 164.310(b)
+```
+Catalyze, Inc. has policies in place that define the acceptable uses in place for workstations within the environment. These policies define the acceptable and unauthorized uses of personnel that provided workstations with access to systems potentially interacting with ePHI. These policies are enforced on all workstations.
+```
+
+Standard | Description
+--------- | -----------
+Workstation Use (Req) | Implement policies and procedures that specify the proper functions to be performed, the manner in which those functions are to be performed, and the physical attributes of the surroundings of a specific workstation or class of workstation that can access ePHI.
+
+## Workstation Security - 164.310(c)
+```
+Catalyze has a formal Workstation and Portable Media Security Policy that identifies the specific requirements of each device. The policies define the requirements for using and/or restricted specific actions while engaged with any ePHI. Additionally, workstations are secured appropriately to limit exposure to breaches. Actions and events are monitored and controlled, with user restrictions on downloading or copying any ePHI without documented approval and business justification.
+```
+
+Standard | Description
+--------- | -----------
+Workstation Security (Req) | Implement physical safeguards for all workstations that access ePHI, to restrict access to authorized users.
+
+## Device and Media Controls - 164.310(d)(1)
+```
+Catalyze has polcies and procedures for all workstations that interact with and may potentially become exposed to ePHI. These policies have requirements for secure media disposal so that ePHI cannot be recovered from these systems.
+
+Catalyze has Media Re-use requirements for the workstations, despite the fact that these workstations do not have access to and interaction with ePHI.
+
+Catalyze does not move any electronic media offsite.
+```
+
+Standard | Description
+--------- | -----------
+Disposal (Req) | Implement policies and procedures to address the final disposition of ePHI, and/or the hardware or electronic media on which it is stored.
+Media Re-use (Req) | Implement procedures for removal of ePHI from electronic media before the media are made available for re-use.
+Accountability (A) | Maintain a record of the movements of hardware and electronic media and any person responsible therefore.
+Data Backup and Storage (A) | Create a retrievable, exact copy of electronic protected health information, when needed, before movement of equipment.
+
+# Technical Safeguards (see [164.312](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/techsafeguards.pdf))
+
+This section of HIPAA outlines *the technology and the policy and procedures for its use that protect electronic protected health information and control access to it.* It is important to note that these requirements are not presecriptive, and there is flexibility in implementation. The key is that measures that are reasonabale and appropriate are implemented.
+
+## Access Control - 164.312(a)(1)
+```
+All users within the Catalyze environment are issued a unique user name and password. All accounts are local and unique. General/shared accounts are not in place and root access is restricted.
+
+Catalyze, Inc, has procedures and a process for obtaining access to ePHI should an emergency or disaster occur.
+
+Catalyze systems settings on all of its servers have session timeout features enabled and configured to terminate sessions after a period of 30 minutes or less.
+
+Catalyze, Inc. encrypts all stored data in its environment using 256-bit AES encryption.
+```
+
+Standard | Description
+--------- | -----------
+Unique User Identification (Req) | Assign a unique name and/or number for identifying and tracking user identity.
+Emergency Access Procedure (Req) | Establish (and implement as needed) procedures for obtaining necessary electronic protected health information during an emergency.
+Automatic Logoff (A) | Implement electronic procedures that terminate an electronic session after a predetermined time of inactivity.
+Encryption and Decryption (A) | Implement a method to encrypt and decrypt electronic protected health information.
+
+## Audit Controls - 164.312(b)
+```
+Catalyze, Inc. has policies in place addressing audit trail requirements. Systems within the its environment are logging to a centralized logging solution, Logstash, which is monitoring system level events and contains user id, timestamp, event, origination, and type of event. These logs are constantly monitored for suspicious events and alerts are generated to any type of behavior that is suspicious.
+```
+
+Standard | Description
+--------- | -----------
+Audit Controls (Req) | Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use ePHI.
+
+## Integrity - 164.312(c)(1)
+```
+Catalyze has employed a centralized access control system for authenticating and accessing internal systems where ePHI resides. Currently, Catalyze employees access a bastion host using an SSH-2 connection to access internal systems. Accounts on the internal database are restricted to a limited number of personnel, with logging in place to track all transactions.
+```
+
+Standard | Description
+--------- | -----------
+Mechanism to Authenticate Electronic Protected (A) | Implement electronic mechanisms to corroborate that electronic protected health information has not been altered or destroyed in an unauthorized manner.
+
+## Person or Entity Authentication - 164.312(d)
+```
+Catalyze, Inc. has a formal policy that describes the process of verifying a personâ€™s identity before unlocking their account, resetting their password, and/or providing access to ePHI.
+```
+
+Standard | Description
+--------- | -----------
+Person or Entity Authentication (Req) | Implement procedures to verify that a person or entity seeking access to ePHI is the one claimed.
+
+## Transmission Security - 164.312(e)(1)
+```
+All data in transit with Catalyze is sent over internet connections through an SSLv3/TLS1.2 encrypted mechanism. Load balancers segment the traffic and send transmissions of the data to the application servers via SSLv3 encryption. Additionally, none of the internal application servers, database servers, and log and monitoring servers are accessible via public internet. All internal servers must be accessed via bastion host which are not accessible from the internet and require an SSH connection.
+```
+
+Standard | Description
+--------- | -----------
+Integrity Controls (A) | Implement security measures to ensure that electronically transmitted ePHI is not improperly modified without detection.
+Encryption (A) | Implement a mechanism to encrypt ePHI in transit.
+
+# Organizational Requirements (see [164.314](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/pprequirements.pdf))
+
+These requirements simply outline the need for business associate agreements between covered entities and business associates. This requirement has recently been extended to require business associate agreements between business associates and all subcontractors.
+
+## Business Associate Contracts or Other Arrangements - 164.314(a)(1)(i)
+```
+Catalyze has a formalized policy and process is in place concerning BAAâ€™s. BAA templates are in place and BA contracts are reviewed for consistency.
+
+Catalyze, Inc. has a formal policy and process in place for performing due diligence with any third party or vendor before engaging them. Additionally, contracts are retained that detail the responsibility of safeguarding any information to which the provider may have access.
+```
+Standard | Description
+--------- | -----------
+Business Associate Contracts (Req) | The Implementation Specifications for the HIPAA Security Rule Organizational Requirements "Business Associate Contracts or Other Arrangements" standard were evaluated under section 164.308(b)(1) above.
+Other Arrangements (Req) | Rules to engaging with additional 3rd parties, like subcontractors.
+
+# Policies and Procedures and Documentation Requirements (see [164.316](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/pprequirements.pdf))
+
+## Policies and Procedures - 164.316(a)
+```
+Catalyze has a formalized Policy Management program that ensures that policies are developed, implemented, and updated according to best practice and organization requirements.
+```
+Standard | Description
+--------- | -----------
+Policies and Procedures (Req) | Implement reasonable and appropriate policies and procedures to comply with the standards, implementation specifications, or other requirements of this subpart, taking into account those factors specified in Â§ 164.306(b)(2)(i), (ii), (iii), and (iv). This standard is not to be construed to permit or excuse an action that violates any other standard, implementation specification, or other requirements of this subpart.
+
+## Documentation - 164.316(b)(1)(i)
+```
+Catalyze has a multiple information security policies address the requirements of retaining necessary policies and documentation for a minimum of 6 years or the date of creation, whichever comes later.
+
+Information security policies and procedures are available and distributed to personnel on the company shared drive (curently Box).
+
+Catalyze, Inc. has an update and review process for reviewing all policies and procedures and updating them as necessary. Additionally, Catalyze tracks and maintains revision history, approval signature, and timestamp to ensure policies are reviewed and updated according to organization requirements.
+```
+Standard | Description
+--------- | -----------
+Time Limit (Req) | Retain the documentation required by paragraph (b)(1) of this section for 6 years from the date of its creation or the date when it last was in effect, whichever is later.
+Availability (Req) | Make documentation available to those persons responsible for implementing the procedures to which the documentation pertains.
+Updates (Req) | Review documentation periodically, and update as needed, in response to environmental or operational changes affecting the security of the electronic protected health information.
+
+# HITECH Act and Omnibus Rule â€“ [IT Security Provisions](http://www.gpo.gov/fdsys/pkg/FR-2013-01-25/pdf/2013-01073.pdf)
+
+These were updates made to strengthen the Privacy, Security, and Breach Notifications rules within HIPAA. These updates went into effect in 2013.
+
+## Notification in the Case of Breach - 13402(a) and 13402(b)
+```
+Catalyze has policies that address the requirements of notifying affected individuals of a suspected breach of ePHI.
+
+Catalyze has policies address the requirements of notifying the Covered Entity by the Business Associate. Catalyze is a defined Business Associate according to HIPAA regulations.
+```
+Standard | Description
+--------- | -----------
+In General | A covered entity that accesses, maintains, retains, modifies, records, stores, destroys, or otherwise holds, uses, or discloses unsecured protected health information (as defined in subsection (h)(1)) shall, in the case of a breach of such information that is discovered by the covered entity, notify each individual whose unsecured protected health information has been, or is reasonably believed by the covered entity to have been, accessed, acquired, or disclosed as a result of such breach.
+Notification of Covered Entity by Business Associate | The requirements for the HITECH Act Notification in the Case of Breach - Notification of Covered Entity by Business Associate - Uses and Disclosures: Organizational Requirements "Business Associate Contracts" standard are located in the "BA Requirements" worksheet.
+
+## Timeliness of Notification - 13402(d)(1)
+```
+Catalyze has policies that address the requirements of notifying the affected individuals or Covered Entities in a timely manner.
+```
+Standard | Description
+--------- | -----------
+In General | Subject to subsection (g), all notifications required under this section shall be made without unreasonable delay and in no case later than 60 calendar days after the discovery of a breach by the covered entity involved (or business associate involved in the case of a notification required under subsection (b)).
+
+## Content of Notification - 13402(f)(1)
+```
+Catalyze has Breach Notification policies in place and  they include a brief description of the breach, including the date of the breach and the date of the discovery of the breach, if known. Catalyze breach notification policies in place and confirmed they include a description of the types of unsecured protected health information that were involved in the breach (such as whether full name, Social Security number, date of birth, home address, account number, diagnosis, disability code or other types of information were involved).
+
+Catalyze breach notification policies include steps the individual should take to protect themselves from potential harm resulting from the breach.
+
+Catalyze breach notificationpolicies include the contact procedures for individuals to ask questions or learn additional information, which includes a toll-free telephone number, an e-mail address, Web site, or postal address.
+
+```
+Standard | Description
+--------- | -----------
+Description of Breach | Regardless of the method by which notice is provided to individuals under this section, notice of a breach shall include, to the extent possible, the following: (1) A brief description of what happened, including the date of the breach and the date of the discovery of the breach, if known.
+Description of EPHI Involved | (2) A description of the types of unsecured protected health information that were involved in the breach (such as full name, Social Security number, date of birth, home address, account number, or disability code).
+Actions by Individuals | 3) The steps individuals should take to protect themselves from potential harm resulting from the breach.
+Contact Procedures | (5) Contact procedures for individuals to ask questions or learn additional information, which shall include a toll-free telephone number, an e-mail address, Web site, or postal address.
