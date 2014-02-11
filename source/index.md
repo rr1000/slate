@@ -12,9 +12,20 @@ toc_footers:
 
 # Catalyze HIPPA Compliance
 
-Learn how Catalyze not only complies with HIPPA, but builds a better, more secure environment to mitigate your risk. We did the hard work so you don't have to. See how we comply below.
+Learn how Catalyze not only complies with HIPPA, but builds a better, more secure environment to mitigate your risk. We did the hard work so you don't have to. In an effort to be transaparent, we go into a good amount detail on this page. As a lead in, below is a high level summary our major architecture, our guiding principles, and how it maximizes our security posture.
 
-Controls marked with an (Req) are *Required*. Controls marked with an (A) are *Addressable*. In our environment, controls outlined below are implemented on all infrastructure that processes, stores, transmits or can otherwise gain access to ePHI (electronic protected health information). The referenced controls are listed on the left, recommendation in the middle, and Catalyze compliant implementation on the right.
+Need | Catalyze Approach
+--------- | -----------
+Encryption  | All data is encrypted in transit, end to end, and at rest. Log data is also encypted to mitigate risk of ePHI stored in log files.
+Minimum Necessary Access | Access controls are always defaulted to no access unless overrided manually. 
+PHI Segmentation | Using our APIs for users or clinical data, stored data is segments both logically and physically. This separates personally identifiable information (PII) and health-related information, mitigating risk of unauthorized access to ePHI. 
+Monitoring | All network requests, successful and unsuccessful, are logged, along with all system logs. PHI requests (GET, POST, PUT, DELETE) log the requestor, location, data changed/viewed. Additional, alerts are proactively sent based on suspicious activity.
+Auditing | All log data is encrypted and unified, enablding secure access to full historical network activity records.
+Minimum Risk to Architecture | API access is the only form of public access enabled to servers; all API access must first pass through Catalyze firewalls. To gain full access to Catalyze systems, users must login via 2 factor authentication through a bastion host, authenticate to the specific system as a regular user, and upgrade privilges on the systems termporarily as needed.
+Risk Management | We proactively perform risk assessments to assure changes to our infrastructure does not expose new risks. Risks are mediated before changes are pushed to production.
+Workforce Training | Despite not having access to ePHI of our customes, all Catalyze workforce members still undergo HIPAA and security training regularly.
+
+See the details of how we comply with HIPAA below. These are mapped to specific HIPAA rules. There's a lot here but again, we are taking this on so that our customers don't have to. Controls marked with an (Req) are *Required*. Controls marked with an (A) are *Addressable*. In our environment, controls outlined below are implemented on all infrastructure that processes, stores, transmits or can otherwise gain access to ePHI (electronic protected health information). The referenced controls are listed on the left, recommendation in the middle, and Catalyze compliant implementation on the right.
 
 # Administrative Safeguards (see [164.308](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf))
 
@@ -182,7 +193,7 @@ Standard | Description
 --------- | -----------
 Workstation Use (Req) | Implement policies and procedures that specify the proper functions to be performed, the manner in which those functions are to be performed, and the physical attributes of the surroundings of a specific workstation or class of workstation that can access ePHI.
 
-## Workstation Security - 164.310(c)
+## Workstation Security - 164.310c
 ```
 Catalyze has a formal Workstation and Portable Media Security Policy that identifies the specific requirements of each device. The policies define the requirements for using and/or restricted specific actions while engaged with any ePHI. Additionally, workstations are secured appropriately to limit exposure to breaches. Actions and events are monitored and controlled, with user restrictions on downloading or copying any ePHI without documented approval and business justification.
 ```
@@ -238,7 +249,7 @@ Standard | Description
 --------- | -----------
 Audit Controls (Req) | Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use ePHI.
 
-## Integrity - 164.312(c)(1)
+## Integrity - 164.312c(1)
 ```
 Catalyze has employed a centralized access control system for authenticating and accessing internal systems where ePHI resides. Currently, Catalyze employees access a bastion host using an SSH-2 connection to access internal systems. Accounts on the internal database are restricted to a limited number of personnel, with logging in place to track all transactions.
 ```
@@ -305,7 +316,7 @@ Time Limit (Req) | Retain the documentation required by paragraph (b)(1) of this
 Availability (Req) | Make documentation available to those persons responsible for implementing the procedures to which the documentation pertains.
 Updates (Req) | Review documentation periodically, and update as needed, in response to environmental or operational changes affecting the security of the electronic protected health information.
 
-# HITECH Act and Omnibus Rule â€“ [IT Security Provisions](http://www.gpo.gov/fdsys/pkg/FR-2013-01-25/pdf/2013-01073.pdf)
+# HITECH Act and Omnibus Rule: [IT Security Provisions](http://www.gpo.gov/fdsys/pkg/FR-2013-01-25/pdf/2013-01073.pdf)
 
 These were updates made to strengthen the Privacy, Security, and Breach Notifications rules within HIPAA. These updates went into effect in 2013.
 
