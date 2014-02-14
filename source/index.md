@@ -1,5 +1,5 @@
 ---
-title: Catalyze HIPPA Docs
+title: Catalyze HIPAA Docs
 
 language_tabs:
   - "Catalyze Controls"
@@ -10,9 +10,9 @@ toc_footers:
  - ""
 ---
 
-# Catalyze HIPPA Compliance
+# Catalyze HIPAA Compliance
 
-Learn how Catalyze not only complies with HIPPA, but builds a better, more secure environment to mitigate your risk. We did the hard work so you don't have to. In an effort to be transaparent, we go into a good amount detail on this page. As a lead in, below is a high level summary our major architecture, our guiding principles, and how it maximizes our security posture.
+Learn how Catalyze not only complies with HIPAA, but builds a better, more secure environment to mitigate your risk. We did the hard work so you don't have to. In an effort to be transaparent, we go into a good amount detail on this page. As a lead in, below is a high level summary our major architecture, our guiding principles, and how it maximizes our security posture.
 
 Need | Catalyze Approach
 --------- | -----------
