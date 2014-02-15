@@ -18,29 +18,29 @@ Need | Catalyze Approach
 --------- | -----------
 Encryption  | All data is encrypted in transit, end to end, and at rest. Log data is also encypted to mitigate risk of ePHI stored in log files.
 Minimum Necessary Access | Access controls are always defaulted to no access unless overrided manually. 
-PHI Segmentation | Using our APIs for users or clinical data, stored data is segments both logically and physically. This separates personally identifiable information (PII) and health-related information, mitigating risk of unauthorized access to ePHI. 
-Monitoring | All network requests, successful and unsuccessful, are logged, along with all system logs. PHI requests (GET, POST, PUT, DELETE) log the requestor, location, data changed/viewed. Additional, alerts are proactively sent based on suspicious activity.
-Auditing | All log data is encrypted and unified, enablding secure access to full historical network activity records.
-Minimum Risk to Architecture | API access is the only form of public access enabled to servers; all API access must first pass through Catalyze firewalls. To gain full access to Catalyze systems, users must login via 2 factor authentication through a bastion host, authenticate to the specific system as a regular user, and upgrade privilges on the systems termporarily as needed.
-Risk Management | We proactively perform risk assessments to assure changes to our infrastructure does not expose new risks. Risks are mediated before changes are pushed to production.
-Workforce Training | Despite not having access to ePHI of our customes, all Catalyze workforce members still undergo HIPAA and security training regularly.
+PHI Segmentation | Using our APIs for users or clinical data, stored data is segmented both logically and physically. This separates personally identifiable information (PII) and health-related information, mitigating risk of unauthorized access to ePHI. 
+Monitoring | All network requests, successful and unsuccessful, are logged, along with all system logs. PHI requests (GET, POST, PUT, DELETE) log the requestor, location, and data changed/viewed. Additionally, alerts are proactively sent based on suspicious activity.
+Auditing | All log data is encrypted and unified, enabling secure access to full historical network activity records.
+Minimum Risk to Architecture | API access is the only form of public access enabled to servers; all API access must first pass through Catalyze firewalls. To gain full access to Catalyze systems, users must login via 2 factor authentication through a bastion host, authenticate to the specific system as a regular user, and upgrade privileges on the systems termporarily as needed.
+Risk Management | We proactively perform risk assessments to assure changes to our infrastructure do not expose new risks to ePHI. Risks mitigation is done before changes are pushed to production.
+Workforce Training | Despite not having access to the ePHI of our customers, all Catalyze workforce members undergo HIPAA and security training regularly.
 
-See the details of how we comply with HIPAA below. These are mapped to specific HIPAA rules. There's a lot here but again, we are taking this on so that our customers don't have to. Controls marked with an (Req) are *Required*. Controls marked with an (A) are *Addressable*. In our environment, controls outlined below are implemented on all infrastructure that processes, stores, transmits or can otherwise gain access to ePHI (electronic protected health information). The referenced controls are listed on the left, recommendation in the middle, and Catalyze compliant implementation on the right.
+See the finer grain details of how we comply with HIPAA below. These are mapped to specific HIPAA rules. There's a lot here but again, we are taking this responsibility on so that our customers don't have to. Controls marked with an (Req) are *Required*. Controls marked with an (A) are *Addressable*. In our environment, controls outlined below are implemented on all infrastructure that processes, stores, transmits or can otherwise gain access to ePHI (electronic protected health information). The referenced controls are listed on the left, recommendation in the middle, and Catalyze compliant implementation on the right.
 
 # Administrative Safeguards (see [164.308](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf))
 
 Taken directly from the wording of the Security Rule, administrative safeguards are *administrative actions, and policies and procedures, to manage the selection, development, implementation, and maintenance of security measures to protect electronic protected health information and to manage the conduct of the covered entityâ€™s workforce in relation to the protection of that information.*
 
+There aren't specific security settings in this section, and the most important area covered is the risk assessment. The Risk assessments is a great process for any organization that wants to become compliant.
+
 ## Security Management Process - 164.308(a)(1)(i)
 
 ```
-Catalyze, Inc. has a risk management policy that defines the risk analysis and risk management process in place. Catalyze, Inc. uses NIST800-30 and 800-26 for performing risk analysis.
+Catalyze, Inc. has a risk management policy that defines the risk analysis and risk management process in place. Catalyze uses NIST800-30 and 800-26 for performing risk analysis. Our policy begins with an inventory of all Catalyze systems, mapping of where ePHI is processed, transmitted, or stored, identification of threats, risks, and likelihood, and the mitigation of risks. Policies address risk inherent within the environment and mitigating the risk to an acceptable and reasonable level.
 
-Policies address risk inherent within the environment and mitigating the risk to an acceptable level on par with the organizations risk posture.
+Catalyze has a Sanction Policy that has sanctions for employees not adhering to certain policies, and for specifically violating HIPAA rules.
 
-Catalyze has a Sanction Policy that has sanctions for employees not adhering to certain policies.
-
-Policies and procedures address the requirements of monitoring and logging system level events and actions taken by individuals within the environment. All requests into and out of the Catalyze network are logged, as well as all system events using Logstash. Catalyze, Inc. has implemented multiple logging and monitoring solutions to track events within their environment and to monitor for certain types of behavior.
+Policies and procedures address the requirements of monitoring and logging system level events and actions taken by individuals within the environment. All requests into and out of the Catalyze network are logged, as well as all system events using Logstash. Catalyze, has implemented multiple logging and monitoring solutions to track events within their environment and to monitor for certain types of behavior. Additionally, proactive alerts are enabled and triggered based on certain suspicious activity.
 ```
 
 Standard | Description
@@ -53,7 +53,7 @@ Information System Activity Review (Req) | Implement procedures to regularly rev
 ## Assigned Security Responsibility - 164.308(a)(2)
 
 ```
-Catalyze, Inc. has formally assigned and documented its security officer.
+Catalyze, Inc. has formally assigned and documented its security officer. Our security office is [Ben Uphoff](malto:ben@catalyze.io).
 ```
 
 Standard | Description
@@ -63,11 +63,9 @@ Assigned Security Responsibility (Req) | Identify the security official who is r
 ## Workforce Security - 164.308(a)(3)(i)
 
 ```
-Catalyze, Inc. has policies in place require individuals requesting access to ePHI submit an authorization form that is signed and acknowledges their responsibility of safeguarding ePHI. The form must also be approved by the supervisor. Once signed and approved, then the individual will be provisioned access to systems deemed business necessary.
+Catalyze, Inc. has policies in place that require workforce members requesting access to ePHI submit an authorization form that is signed and acknowledges their responsibility of safeguarding ePHI. The form must also be approved by the supervisor and customer. Once signed and approved, then the individual will be provisioned access to systems deemed business necessary. All Access to ePHI is based on minimum necessary requirements and least privilege. Catalyze cannot access ePHI unless customers explicitly grant access.
 
-Access to ePHI is based on minimum necessary requirements and least privilege.
-
-Catalyze policies discuss the immediate removal of access once an employee has been terminated, with the Security Officer responsible for terminating the access. Once HR initiates the termination process the termination checklist is reference to ensure necessary actions are taken to remove systems and facilities access.
+Catalyze policies define the immediate removal of access once an employee has been terminated, with the Security Officer responsible for terminating the access. Once HR initiates the termination process the termination checklist is reference to ensure necessary actions are taken to remove systems and facilities access.
 ```
 
 Standard | Description
@@ -79,11 +77,11 @@ Termination Procedures (A) | Implement procedures for terminating access to elec
 ## Information Access Management - 164.308(a)(4)(i)
 
 ```
-Catalyze, Inc. does not perform the functions of a Healthcare Clearinghouse so aspects of this sections are not applicable.
+Catalyze, Inc. does not perform the functions of a Healthcare Clearinghouse so aspects of this section are not applicable.
 
-The security officer determines the roles necessary for each system and application. When access is needed to Catalyze infrastructure, a request and acknowledgement form is signed and then approved by the individualâ€™s supervisor.
+The security officer determines the roles necessary for each system and application. When access is needed to Catalyze infrastructure, a request and acknowledgement form is signed and then approved by the individualâ€™s supervisor. In the case of access to ePHI, customers must grant explicit access to Catalyze.
 
-Catalyze, Inc. has a formal process  for requesting additional access to what employees are provisioned.
+Catalyze, Inc. has a formal process for requesting additional access to what employees are provisioned, and again Catalyze customers must approve all requests concerning ePHI.
 ```
 
 Standard | Description
@@ -95,11 +93,11 @@ Access Establishment and Modification (A) | Implement policies and procedures th
 ## Security Awareness and Training - 164.308(a)(5)(i)
 
 ```
-Catalyze, Inc has a Security Awareness training policy in place that requires new employees and current employees to conduct training upon hire and annually thereafter.
+Catalyze, Inc has a Security Awareness training policy in place that requires new employees and current employees to conduct training upon hire and annually thereafter. Minimum training is done annually, with regularly informal security and compliance traning done every other week.
 
-Catalyze, Inc. proactively assesses and tests for malicious software within their environment.
+Catalyze, Inc. proactively assesses and tests for malicious software within their environment, both infrastructure and workstations.
 
-Catalyze, Inc. is monitoring and logging successful and unsuccessful log-in attempts to the servers within its environment and that policies are in place requiring audit logging, which includes login attempts.
+Catalyze, Inc. is monitoring and logging successful and unsuccessful log-in attempts to the servers within its environment and policies are in place requiring audit logging, which includes login attempts.
 
 Password configurations are set to require that passwords are a minimum of 7 character length, 90 day password expiration, account lockout after 5 invalid attempts, password history of last 4 passwords remembered, and account lockout after 15 minutes of inactivity.
 ```
@@ -114,7 +112,7 @@ Password Management (A) | Procedures for creating, changing, and safeguarding pa
 ## Security Incident Procedures - 164.308(a)(6)(i)
 
 ```
-Catalyze has implemented a formal incident response plan (IRP), which discusses the procedures for identifying, responding to, and escalating suspected and confirmed security breaches. Catalyze, Inc. has implemented an incident response team for the purposes of dealing with potential security breaches. The IRP has specific types of incidents to be aware of and look out for, as well as some common types of incidents that are monitored for within the environment.
+Catalyze has implemented a formal incident response plan (IRP), which discusses the procedures for identifying, responding to, and escalating suspected and confirmed security breaches. Catalyze has implemented an incident response team for the purposes of dealing with potential security breaches. The IRP has specific types of incidents to look out for, as well as some common types of incidents that are monitored for within the environment.
 ```
 
 Standard | Description
@@ -146,7 +144,7 @@ Applications and Data Criticality Analysis (A) | Assess the relative criticality
 ## Evaluation - 164.308(a)(8)
 
 ```
-Catalyze, Inc. had formal internal policies and procedures for conducting periodic technical and non-technical testing. These define procedures for performing quarterly internal and external vulnerability scanning, as well as annual penetration testing. Additionally, non-technical evaluations occur on an annual basis to ensure that the security posture of Catalyze is at the defined level, approved by management, and communicated down to Catalyze employees.
+Catalyze, Inc. has formal internal policies and procedures for conducting periodic technical and non-technical testing. These define procedures for performing quarterly internal and external vulnerability scanning, as well as annual penetration testing. Vulnerability scanning is performed with any major changes in infrastructure. Additionally, non-technical evaluations occur on an annual basis to ensure that the security posture of Catalyze is at the defined level, approved by management, and communicated down to Catalyze employees.
 ```
 
 Standard | Description
@@ -156,7 +154,7 @@ Evaluation (Req) | Perform a periodic technical and non-technical evaluation, ba
 ## Business Associate Contracts and Other Arrangement - 164.308(b)(1)
 
 ```
-Catalyze, Inc. has a formalized template, as well as policies in place regarding Business Associate Agreements and written contracts. Catalyze has engaged a third part provider for hosting responsibilities and has written attestations of safeguarding its data. Additionally, Catalyze performs due diligence in assuring that third party providers they select go through their due diligence process.
+Catalyze, Inc. has a formalized template, as well as policies in place regarding Business Associate Agreements and written contracts. Catalyze has engaged a third part provider for hosting responsibilities and has written attestations of safeguarding its data. Additionally, Catalyze performs due diligence in assuring that third party providers they select go through their due diligence process and provide services consistent with Catalye's security and compliance posture.
 ```
 
 Standard | Description
@@ -165,16 +163,16 @@ Written Contract or Other Arrangement (Req) | A covered entity, in accordance wi
 
 # Physical Safeguards (see [164.310](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/physsafeguards.pdf))
 
-This one is pretty straight forward - *physical measures, policies, and procedures to protect a covered entityâ€™s electronic information systems and related buildings and equipment, from natural and environmental hazards, and unauthorized intrusion.*
+This one is pretty straight forward - *physical measures, policies, and procedures to protect a covered entityâ€™s electronic information systems and related buildings and equipment, from natural and environmental hazards, and unauthorized intrusion.* Data center security is typically easier to address than office security, though at Catalyze we address both.
 
 ## Facility Access Controls - 164.310(a)(1)
 
 ```
 Catalyze, Inc. infrastructure supporting the its environment is hosted at Rackspace, which provides hosting and recovery services for the infrastructure.
 
-Catalyze headquarters also has any written policies and procedures for safeguarding the corporate location, which includes workstations with access to the environment, from unauthorized physical access.
+Catalyze headquarters also has any written policies and procedures for safeguarding the corporate location, which includes workstations with access to the environment, from unauthorized physical access. Smart locks are used to track access and all visitors are logged and escorted.
 
-The Catalyze environment is entirely hosted and built on hardware components provided by Rackspace in a multitenant configuration, which Catalyze would never have access into.
+The Catalyze environment is entirely hosted and built on hardware components provided by Rackspace, which Catalyze would never have access into.
 ```
 
 Standard | Description
@@ -195,7 +193,7 @@ Workstation Use (Req) | Implement policies and procedures that specify the prope
 
 ## Workstation Security - 164.310c
 ```
-Catalyze has a formal Workstation and Portable Media Security Policy that identifies the specific requirements of each device. The policies define the requirements for using and/or restricted specific actions while engaged with any ePHI. Additionally, workstations are secured appropriately to limit exposure to breaches. Actions and events are monitored and controlled, with user restrictions on downloading or copying any ePHI without documented approval and business justification.
+Catalyze has a formal Workstation and Portable Media Security Policy that identifies the specific requirements of each device. The policies define the requirements for using and/or restricted specific actions while engaged with any ePHI. Additionally, workstations are secured appropriately to limit exposure to breaches. Firewalls and hard disk encryption are used on all workstations. Actions and events are monitored and controlled, with user restrictions on downloading or copying any ePHI without documented approval and business justification.
 ```
 
 Standard | Description
@@ -207,8 +205,6 @@ Workstation Security (Req) | Implement physical safeguards for all workstations 
 Catalyze has polcies and procedures for all workstations that interact with and may potentially become exposed to ePHI. These policies have requirements for secure media disposal so that ePHI cannot be recovered from these systems.
 
 Catalyze has Media Re-use requirements for the workstations, despite the fact that these workstations do not have access to and interaction with ePHI.
-
-Catalyze does not move any electronic media offsite.
 ```
 
 Standard | Description
@@ -224,13 +220,13 @@ This section of HIPAA outlines *the technology and the policy and procedures for
 
 ## Access Control - 164.312(a)(1)
 ```
-All users within the Catalyze environment are issued a unique user name and password. All accounts are local and unique. General/shared accounts are not in place and root access is restricted.
+All users within the Catalyze environment are issued a unique user name and password. All accounts are local and unique. General/shared accounts are not in place and root access is restricted and monitored.
 
-Catalyze, Inc, has procedures and a process for obtaining access to ePHI should an emergency or disaster occur.
+Catalyze has procedures and a process for obtaining access to ePHI should an emergency or disaster occur.
 
 Catalyze systems settings on all of its servers have session timeout features enabled and configured to terminate sessions after a period of 30 minutes or less.
 
-Catalyze, Inc. encrypts all stored data in its environment using 256-bit AES encryption.
+Catalyze encrypts all stored data in its environment using 256-bit AES encryption. Additionally, all data in transit is encrypted end to end (more below).
 ```
 
 Standard | Description

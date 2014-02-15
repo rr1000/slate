@@ -173,7 +173,7 @@ body{
   // half of the content always this background color.
   .dark-box {
     // display: none !important;
-    width: $examples-width;
+    width: 45%;
     background-color: $examples-bg;
     position: absolute;
     right: 0;
@@ -412,7 +412,7 @@ body{
 
     padding: 2em $main-padding;
     margin: 0;
-    width: $examples-width;
+    width: 45%;
 
     float:right;
     clear:right;
@@ -471,14 +471,14 @@ body{
 }
 
 .content > h1, .content > h2, .content > h3, .content > p, .content > table, .content > ul, .content > ol, .content > aside, .content > dl{
-  margin-right: 30%;
+  margin-right: 45%;
 }
 
 .page-wrapper{
 
   ul, li, p{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
