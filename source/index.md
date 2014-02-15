@@ -25,7 +25,7 @@ Minimum Risk to Architecture | API access is the only form of public access enab
 Risk Management | We proactively perform risk assessments to assure changes to our infrastructure do not expose new risks to ePHI. Risks mitigation is done before changes are pushed to production.
 Workforce Training | Despite not having access to the ePHI of our customers, all Catalyze workforce members undergo HIPAA and security training regularly.
 
-See the finer grain details of how we comply with HIPAA below. These are mapped to specific HIPAA rules. There's a lot here but again, we are taking this responsibility on so that our customers don't have to. Controls marked with an (Req) are *Required*. Controls marked with an (A) are *Addressable*. In our environment, controls outlined below are implemented on all infrastructure that processes, stores, transmits or can otherwise gain access to ePHI (electronic protected health information). The referenced controls are listed on the left, recommendation in the middle, and Catalyze compliant implementation on the right.
+See the finer grain details of how we comply with HIPAA below. These are mapped to specific HIPAA rules. There's a lot here but again, we are taking this responsibility on so that our customers don't have to. Controls marked with an (Req) are *Required*. Controls marked with an (A) are *Addressable*. In our environment, controls outlined below are implemented on all infrastructure that processes, stores, transmits or can otherwise gain access to ePHI (electronic protected health information). The referenced controls are listed on the left, recommendation in the middle, and Catalyze compliant implementation on the right. If you're interesting in seeing our specific policy documents, please [email us](mailto:hipaa@catalyze.io).
 
 # Administrative Safeguards (see [164.308](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/adminsafeguards.pdf))
 
@@ -184,7 +184,7 @@ Maintenance Records (A) | Implement policies and procedures to document repairs 
 
 ## Workstation Use - 164.310(b)
 ```
-Catalyze, Inc. has policies in place that define the acceptable uses in place for workstations within the environment. These policies define the acceptable and unauthorized uses of personnel that provided workstations with access to systems potentially interacting with ePHI. These policies are enforced on all workstations.
+Catalyze, Inc. has policies in place that define the acceptable uses in place for workstations within the environment. These policies define the acceptable and unauthorized uses of personnel that provided workstations with access to systems potentially interacting with ePHI. These policies are enforced on all workstations. All internal email uses HIPAA-compliant vendors.
 ```
 
 Standard | Description
@@ -193,7 +193,7 @@ Workstation Use (Req) | Implement policies and procedures that specify the prope
 
 ## Workstation Security - 164.310c
 ```
-Catalyze has a formal Workstation and Portable Media Security Policy that identifies the specific requirements of each device. The policies define the requirements for using and/or restricted specific actions while engaged with any ePHI. Additionally, workstations are secured appropriately to limit exposure to breaches. Firewalls and hard disk encryption are used on all workstations. Actions and events are monitored and controlled, with user restrictions on downloading or copying any ePHI without documented approval and business justification.
+Catalyze has a formal Workstation and Portable Media Security Policy that identifies the specific requirements of each device. The policies define the requirements for using and/or restricted specific actions while engaged with any ePHI. Additionally, workstations are secured appropriately to limit exposure to breaches. Firewalls and hard disk encryption are used on all workstations. Actions and events are monitored and controlled, with user restrictions on downloading or copying any ePHI without documented approval and business justification. Additionally, all file storage internally at Catalyze utilizes HIPAA-compliant cloud-based vendors (currently Box and Google Apps).
 ```
 
 Standard | Description
@@ -216,7 +216,7 @@ Data Backup and Storage (A) | Create a retrievable, exact copy of electronic pro
 
 # Technical Safeguards (see [164.312](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/techsafeguards.pdf))
 
-This section of HIPAA outlines *the technology and the policy and procedures for its use that protect electronic protected health information and control access to it.* It is important to note that these requirements are not presecriptive, and there is flexibility in implementation. The key is that measures that are reasonabale and appropriate are implemented.
+This section of HIPAA outlines *the technology and the policy and procedures for its use that protect electronic protected health information and control access to it.* It is important to note that these requirements are not presecriptive, and there is flexibility in implementation. The key is that measures that are reasonabale and appropriate are implemented to safegaurd ePHI.
 
 ## Access Control - 164.312(a)(1)
 ```
@@ -275,13 +275,11 @@ Encryption (A) | Implement a mechanism to encrypt ePHI in transit.
 
 # Organizational Requirements (see [164.314](http://www.hhs.gov/ocr/privacy/hipaa/administrative/securityrule/pprequirements.pdf))
 
-These requirements simply outline the need for business associate agreements between covered entities and business associates. This requirement has recently been extended to require business associate agreements between business associates and all subcontractors.
+These requirements simply outline the need for business associate agreements (BAAs) between covered entities and business associates. This requirement has recently been extended to require business associate agreements between business associates and all subcontractors. That linking, chaining together of of BAAs, has created for new and interesting legal and business questions. Basically, each layer in the chain of BAAs takes on certain responsibilities and certain risks as part of HIPAA, and there needs to be consistency. Case in point, at Catalyze we have several customers that have moved over from compliant IaaS providers because those providers had breach notification timelines that were not acceptable for large healthcare enterprises. We've taken a proactive approach to BAAs to mitigate risk for our customers and assure consistency along the chain of BAAs.
 
 ## Business Associate Contracts or Other Arrangements - 164.314(a)(1)(i)
 ```
-Catalyze has a formalized policy and process is in place concerning BAAâ€™s. BAA templates are in place and BA contracts are reviewed for consistency.
-
-Catalyze, Inc. has a formal policy and process in place for performing due diligence with any third party or vendor before engaging them. Additionally, contracts are retained that detail the responsibility of safeguarding any information to which the provider may have access.
+Catalyze has a formalized policy and process is in place concerning BAAâ€™s. BAA templates are in place and BA contracts are reviewed for consistency. All paying customers on Catalyze have BAAs in place. Catalyze has a formal policy and process in place for performing due diligence with any third party or vendor before engaging them. Additionally, contracts are retained that detail the responsibility of safeguarding any information to which the provider may have access, as well as creating consistency for Catalyze and Catalyze customers.
 ```
 Standard | Description
 --------- | -----------
@@ -292,7 +290,7 @@ Other Arrangements (Req) | Rules to engaging with additional 3rd parties, like s
 
 ## Policies and Procedures - 164.316(a)
 ```
-Catalyze has a formalized Policy Management program that ensures that policies are developed, implemented, and updated according to best practice and organization requirements.
+Catalyze has a formalized Policy Management program that ensures that policies are developed, implemented, and updated according to best practice and organization requirements. In the words of our auditors, this is a policy about our policies.
 ```
 Standard | Description
 --------- | -----------
@@ -300,11 +298,7 @@ Policies and Procedures (Req) | Implement reasonable and appropriate policies an
 
 ## Documentation - 164.316(b)(1)(i)
 ```
-Catalyze has a multiple information security policies address the requirements of retaining necessary policies and documentation for a minimum of 6 years or the date of creation, whichever comes later.
-
-Information security policies and procedures are available and distributed to personnel on the company shared drive (curently Box).
-
-Catalyze, Inc. has an update and review process for reviewing all policies and procedures and updating them as necessary. Additionally, Catalyze tracks and maintains revision history, approval signature, and timestamp to ensure policies are reviewed and updated according to organization requirements.
+Catalyze retains the necessary policies and documentation for a minimum of 6 years. All policies and procedures are available and distributed to personnel on the company shared drive (curently Box). Catalyze has an update and review process for reviewing all policies and procedures and updating them as necessary. Additionally, Catalyze tracks and maintains revision history, approval signature, and timestamps to ensure policies are reviewed and updated according to organization requirements.
 ```
 Standard | Description
 --------- | -----------
@@ -314,13 +308,11 @@ Updates (Req) | Review documentation periodically, and update as needed, in resp
 
 # HITECH Act and Omnibus Rule: [IT Security Provisions](http://www.gpo.gov/fdsys/pkg/FR-2013-01-25/pdf/2013-01073.pdf)
 
-These were updates made to strengthen the Privacy, Security, and Breach Notifications rules within HIPAA. These updates went into effect in 2013.
+These were updates made to strengthen the Privacy, Security, and Breach Notifications rules within HIPAA. These updates went into effect in 2013 and were the driving force for many existing IaaS vendors to begin signing BAAs.
 
 ## Notification in the Case of Breach - 13402(a) and 13402(b)
 ```
-Catalyze has policies that address the requirements of notifying affected individuals of a suspected breach of ePHI.
-
-Catalyze has policies address the requirements of notifying the Covered Entity by the Business Associate. Catalyze is a defined Business Associate according to HIPAA regulations.
+Catalyze has a formal breach notification policy that addresses the requirements of notifying affected individuals and customers of a suspected breach of ePHI. These policies outline the relevant and responsible parties in case of a breach, forensics work to discover extent of breach, reason for breach, correction of infrastructure to prevent future breach, and requirements of notifying customers of a breach within 24 hours. Catalyze is a defined Business Associate or subcontractor according to HIPAA regulations and the specific customer relationship.
 ```
 Standard | Description
 --------- | -----------
@@ -329,7 +321,7 @@ Notification of Covered Entity by Business Associate | The requirements for the 
 
 ## Timeliness of Notification - 13402(d)(1)
 ```
-Catalyze has policies that address the requirements of notifying the affected individuals or Covered Entities in a timely manner.
+Catalyze has a breach notification policy that addresses the requirements of notifying the affected individuals or customers within 24 hours of a breach.
 ```
 Standard | Description
 --------- | -----------
@@ -337,12 +329,7 @@ In General | Subject to subsection (g), all notifications required under this se
 
 ## Content of Notification - 13402(f)(1)
 ```
-Catalyze has Breach Notification policies in place and  they include a brief description of the breach, including the date of the breach and the date of the discovery of the breach, if known. Catalyze breach notification policies in place and confirmed they include a description of the types of unsecured protected health information that were involved in the breach (such as whether full name, Social Security number, date of birth, home address, account number, diagnosis, disability code or other types of information were involved).
-
-Catalyze breach notification policies include steps the individual should take to protect themselves from potential harm resulting from the breach.
-
-Catalyze breach notificationpolicies include the contact procedures for individuals to ask questions or learn additional information, which includes a toll-free telephone number, an e-mail address, Web site, or postal address.
-
+Catalyze has Breach Notification policies in place and they include a brief description of the breach, including the date of the breach and the date of the discovery of the breach, if known. Catalyze breach notification policies include a description of the types of unsecured protected health information that were involved in the breach (such as whether full name, Social Security number, date of birth, home address, account number, diagnosis, disability code or other types of PII were involved) and what the source of the breach was. Our breach notification policies include steps the individual should take to protect themselves from potential harm resulting from the breach. Our policies also provide the contact procedures for individuals to ask questions or learn additional information, which includes a toll-free telephone number, an e-mail address, Web site, or postal address.
 ```
 Standard | Description
 --------- | -----------
